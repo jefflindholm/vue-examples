@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    [v-cloak] {
+        display: none;
+        background-color: red;
+    }
+</style>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <h1 v-pre>{{message}}</h1>
+        <h1 v-cloak>{{message}}</h1>
+        <h1 v-text="message"></h1>
+        <h2 v-html="intro"></h2>
+        <h2 v-show="viewed">Using v-show</h2>
+        <h2 v-if="viewed">Using v-if</h2>
+        <h2 v-else>Using v-else</h2>
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue@2.1.4/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello from Vue',
+            intro: "welcome to the tutorial <small>It is all about vue</small>",
+            viewed: true,
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-bind:title="title" v-text="`${message}`"></h1>
+        <ul>
+            <li style="list-style-type:none;" v-for="todo in todos" v-text="`${todo.id} - ${todo.text}`" />
+        </ul>
+        <input type="text" v-model="message"></input>
+        <div>
+            <input type="text" v-model="newTodo"></input>
+            <button v-on:click="addTodo" class="btn btn-primary">Add</button>
+        </div>
+        <div>
+            <h2 v-text="`Count ${count}`"></h2>
+            <button v-on:click="increment" class="btn btn-primary">+</button>
+            <button @click="decrement" class="btn btn-primary">-</button>
+        </div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue@2.1.4/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello from Vue',
+            title: `Way! ${new Date()}`,
+            todos: [
+                {text: 'learn vue', id: 1},
+                {text: 'learn vim', id: 2},
+                {text: 'subscribe', id: 3},
+            ],
+            nextId: 4,
+            newTodo: '',
+            count: 0,
+        },
+        methods: {
+            increment() { this.count++ },
+            decrement() { this.count-- },
+            addTodo() {
+                this.todos.push({id: this.nextId++, text: this.newTodo });
+                this.newTodo = '';
+            },
+        },
+    });
+</script>
+
+</html>

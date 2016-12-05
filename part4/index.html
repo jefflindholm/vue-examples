@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-bind:title="title">{{message}}</h1>
+        <img v-bind:src="url" v-bind:alt="title" v-bind:title="title">
+        <img :src="url" :alt="title" :title="title">
+        <ul>
+            <li style="list-style-type:none;" v-for="todo in todos">{{todo.id}} {{todo.text}}</li>
+        </ul>
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue@2.1.4/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello from Vue',
+            title: `Way! ${new Date()}`,
+            url: 'http://vuejs.org/images/logo.png',
+            todos: [
+                {text: 'learn vue', id: 1},
+                {text: 'learn vim', id: 2},
+                {text: 'subscribe', id: 3},
+            ],
+            nextId: 4,
+        }
+    });
+</script>
+
+</html>
