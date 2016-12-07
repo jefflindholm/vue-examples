@@ -2,5 +2,7 @@ build
 node_modules
 .idea
 typings
+dist
+
 bundle.js
 yarn.lock
